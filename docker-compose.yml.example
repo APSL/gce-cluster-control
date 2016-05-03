@@ -1,0 +1,15 @@
+version: "2"
+services:
+  backup:
+      build: .
+      image: apsl/gce-cluster-control
+      environment:
+          GCLOUD_EMAIL_SERVICE_ACCOUNT: backup-disks@project-name.iam.gserviceaccount.com
+          GCLOUD_KEY_FILE: filekey-123840293.json
+          GCLOUD_PROJECT: project-name
+          GCLOUD_ZONE: europe-west1-b
+          CLOUDCONTROL_INSTANCE_GROUP_NAME: gke-group-name-23984hd-group
+          CLOUDCONTROL_INSTANCE_GROUP_SIZE: 2
+      volumes:
+          - ./keys:/keys 
+          - ./status:/status
