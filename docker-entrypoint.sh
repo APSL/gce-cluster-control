@@ -8,6 +8,6 @@ if [ "$1" = 'start' ]; then
 fi
 
 if [ "$1" = 'stop' ]; then
-    exec python gce-cluster-control.py -g $CLOUDCONTROL_INSTANCE_GROUP_NAME -n 2 -z $GCLOUD_ZONE -s /status 
+    exec python gce-cluster-control.py -g $CLOUDCONTROL_INSTANCE_GROUP_NAME -n 0 -z $GCLOUD_ZONE -s /status 
 fi
 exec "$@"
